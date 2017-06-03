@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="style.css">
+	<title>Michal Chesny - Graphical Designer</title>
+</head>
+<body>
+
+<div class="debug">
+	<label><input type="checkbox">Debug</label>
+</div>
+<div class="vertical-lines"></div>
+
+<div class="parallax">
+	<div id="group1" class="parallax__group">
+		<div class="parallax__layer parallax__layer--base">
+			<div class="content">
+				<div class="title">Michal Che<span class="cyan">s</span>ny</div>
+				<div class="title">Graphic De<span class="cyan">s</span>igner</div>
+				<div class="horizontal-line"></div>
+				<div class="sub-title cyan">print mobile web</div>
+			</div>
+		</div>
+	</div>
+	<div id="group2" class="parallax__group">
+		<div class="parallax__layer parallax__layer--base">
+			<div class="content">
+				<div class="flex-container">
+					<div class="about-me-wrapper">
+						<div class="about-me">about me</div>
+						<div class="legend about-me-legend">read</div>
+					</div>
+					<div class="horizontal-line"></div>
+					<div class="about">
+						<img src="mimi.png">
+						<p>
+							Hi,<br>
+							My name is Michal Chesny, a graphic designer. Graduat at Kibutzim College of Art & Education, Bachelor of Education (B.Ed.), Design and Applied Arts. Also I studied at
+							Mentor- Professions College of Design and New Media. The connection between aesthetics, clean lines and delicate shapes has become the guideline for my work, my designs,
+							and my way of life. The inspiration for my designs is usually drawn from the smallest details, those that seem unimportant, for me they are the whole world.
+						</p>
+					</div>
+					<div class="links-container">
+						<div class="downloads">
+							<span class="legend links-downloads">downloads</span>
+							<span class="links">
+								<a href="./michal_cv.pdf" target="_blank">cv</a>
+								<a href="./michal_portfolio.pdf" target="_blank">portfolio</a>
+							</span>
+						</div>
+						<div class="contact">
+							<span class="legend links-contact">contact</span>
+							<span class="links">
+								<a href="https://www.facebook.com/michal.chesny"><img src="fb.png"></a>
+								<a href="https://www.linkedin.com/in/michal-chesny-95a00089"><img src="in.png"></a>
+								<a href="mailto:michal.chesny@gmail.com" class="email-link">@</a>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	var debugInput = document.querySelector("input");
+	function updateDebugState() {
+		document.body.classList.toggle('debug-on', debugInput.checked);
+	}
+	debugInput.addEventListener("click", updateDebugState);
+	updateDebugState();
+</script>
+
+</body>
+</html>

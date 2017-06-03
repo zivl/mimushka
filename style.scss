@@ -1,0 +1,246 @@
+$background-color: rgb(82, 82, 81);
+$cyan: rgb(45, 255, 255);
+
+@import url('https://fonts.googleapis.com/css?family=Alef&subset=hebrew');
+@import url('https://fonts.googleapis.com/css?family=Cookie');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Alef', sans-serif;
+  color: white;
+  background: $background-color;
+}
+
+/* Parallax base styles  */
+
+.parallax {
+  height: 500px; /* fallback for older browsers */
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-perspective: 300px;
+  perspective: 300px;
+
+  .parallax__group {
+	position: relative;
+	height: 500px; /* fallback for older browsers */
+	height: 100vh;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+  }
+
+  .parallax__layer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	/* centre the content in the parallax layers */
+	.content {
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: center;
+	  align-items: center;
+	  height: 100%;
+	}
+
+	.title {
+	  text-align: center;
+	  font-size: 50px;
+	  letter-spacing: 8px;
+	  text-transform: uppercase;
+	}
+	.sub-title {
+	  position: relative;
+	  top: 0;
+	  right: 20%;
+	  padding-left: 35px;
+	}
+	.about-me-wrapper {
+	  border: 1px solid $cyan;
+	  padding: 4px 6px 12px;
+	  display: inline-table;
+	  background-color: $background-color;
+	  position: relative;
+	  left: -30px;
+	  .about-me {
+		height: 0;
+	  }
+	  .about-me-legend {
+		top: -20px;
+	  }
+	}
+
+	.legend {
+	  font-style: italic;
+	  position: relative;
+	  background-color: $background-color;
+	  color: $cyan;
+	  display: inline;
+	  font-family: 'Cookie', cursive;
+	  font-size: 26px;
+	  padding: 0 4px;
+	  &.links-downloads, &.links-contact {
+		top: -65px;
+	  }
+	  &.links-downloads {
+		left: 15px;
+	  }
+	  &.links-contact {
+		left: 95px;
+	  }
+
+	}
+
+	.about-me, .downloads, .contact {
+	  font-size: 30px;
+	}
+
+  }
+}
+
+.parallax__layer--base {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  z-index: 4;
+}
+
+.parallax__layer--back {
+  -webkit-transform: translateZ(-300px) scale(2);
+  transform: translateZ(-300px) scale(2);
+  z-index: 3;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  width: 590px;
+
+  .about {
+	display: flex;
+	padding: 20px;
+
+	p {
+	  text-align: justify;
+	  padding-left: 20px;
+	  background-color: $background-color;
+	}
+  }
+
+  .links-container {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 80px;
+	padding: 40px 30px;
+	border: 1px solid $cyan;
+	color: $cyan;
+
+	.links {
+	  position: relative;
+	  top: 0;
+
+	}
+
+	.downloads .links {
+	  right: 95px;
+	}
+
+	.contact .links {
+	  left: 0;
+	}
+
+	a {
+	  color: white;
+	  text-decoration: none;
+	  border: 1px solid $cyan;
+	  padding: 4px;
+
+	  &.email-link {
+	  }
+	}
+	img {
+	  height: 30px;
+	}
+  }
+}
+
+.cookie-font {
+  font-family: 'Cookie', cursive;
+}
+
+/* Debugger styles - used to show the effect
+--------------------------------------------- */
+
+.debug {
+  position: fixed;
+  top: 0;
+  left: .5em;
+  z-index: 999;
+  color: #fff;
+}
+
+.debug-on .parallax__group {
+  -webkit-transform: translate3d(800px, 0, -800px) rotateY(30deg);
+  transform: translate3d(700px, 0, -800px) rotateY(30deg);
+}
+
+.debug-on .parallax__layer {
+  box-shadow: 0 0 0 2px #000;
+  opacity: 0.9;
+}
+
+/* style the groups
+--------------------------------------------- */
+
+#group1 {
+  z-index: 5; /* slide over group 2 */
+}
+
+#group2 {
+  z-index: 3; /* slide under groups 1 and 3 */
+}
+
+.cyan {
+  color: $cyan;
+}
+
+/* misc
+--------------------------------------------- */
+.demo__info {
+  position: absolute;
+  z-index: 100;
+  bottom: 1vh;
+  top: auto;
+  font-size: 80%;
+  text-align: center;
+  width: 100%;
+}
+
+.vertical-lines {
+  background-color: transparent;
+  border-left: 1px solid $cyan;
+  border-right: 1px solid $cyan;
+  width: 590px;
+  height: 100%;
+  position: absolute;
+  margin: 0 26.5%;
+}
+
+.horizontal-line {
+  background-color: transparent;
+  border-bottom: 1px solid $cyan;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+}
